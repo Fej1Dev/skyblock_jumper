@@ -1,0 +1,18 @@
+{
+  "type": "skyblock_jumper:skyblock",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "skyblock_jumper:skyblock_biome",
+      "lakes": false,
+      "features": true,
+      "layers": [
+        {
+          "block": "minecraft:air",
+          "height": 127
+        }
+      ],
+      "structure_overrides": "skyblockjumper:skyblock_structure"
+    }
+  }
+}
