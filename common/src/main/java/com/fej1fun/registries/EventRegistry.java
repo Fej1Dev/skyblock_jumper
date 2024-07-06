@@ -13,21 +13,28 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 public class EventRegistry {
-    public static final ResourceKey<Level> skyblockResourceKey = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(SkyblockJumper.MOD_ID, "skyblock"));
+    public static final ResourceKey<Level> SKYBLOCK_DIM = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(SkyblockJumper.MOD_ID, "skyblock"));
     public static final ResourceLocation SKYBLOCK = new ResourceLocation(SkyblockJumper.MOD_ID, "skyblock");
+    public static final ResourceKey<Level> STONEBLOCK_DIM = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(SkyblockJumper.MOD_ID, "stoneblock"));
+    public static final ResourceLocation STONEBLOCK = new ResourceLocation(SkyblockJumper.MOD_ID, "stoneblock");
+
 
     public static void init() {
         TickEvent.SERVER_LEVEL_POST.register(instance -> {
             ServerLevel serverLevel = instance.getLevel();
-            if (serverLevel.dimension().equals(skyblockResourceKey)) {
-                StructureTemplate structureTemplateSky = serverLevel.getStructureManager().getOrCreate(SKYBLOCK);
-                Vec3i vec3iSky = structureTemplateSky.getSize();
-                serverLevel.structureManager().hasAnyStructureAt(new BlockPos(0,127,0));
-                if (!serverLevel.structureManager().hasAnyStructureAt(new BlockPos(0,127,0))) {
-                    structureTemplateSky.placeInWorld(serverLevel, new BlockPos(0,127,0),
-                            new BlockPos(vec3iSky.getX(),vec3iSky.getY()+127,vec3iSky.getZ()), new StructurePlaceSettings(), serverLevel.random, 2);
-                }
-            }
+            generateStructure(serverLevel, SKYBLOCK_DIM, SKYBLOCK);
+            generateStructure(serverLevel, STONEBLOCK_DIM, STONEBLOCK);
         });
+    }
+
+    private static void generateStructure(ServerLevel serverLevel, ResourceKey<Level> dimension, ResourceLocation structure) {
+        if (serverLevel.dimension().equals(dimension)) {
+            StructureTemplate structureTemplateSky = serverLevel.getStructureManager().getOrCreate(structure);
+            Vec3i vec3i = structureTemplateSky.getSize();
+            if (!serverLevel.structureManager().hasAnyStructureAt(new BlockPos(0,127,0))) {
+                structureTemplateSky.placeInWorld(serverLevel, new BlockPos(0,127,0),
+                        new BlockPos(vec3i.getX(), vec3i.getY() + 127, vec3i.getZ()), new StructurePlaceSettings(), serverLevel.getRandom(), 2);
+            }
+        }
     }
 }

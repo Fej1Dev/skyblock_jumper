@@ -3,7 +3,7 @@
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "minecraft:void",
+      "biome": "skyblock_jumper:skyblock_biome",
       "lakes": false,
       "features": true,
       "layers": [

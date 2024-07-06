@@ -1,0 +1,18 @@
+{
+  "type": "skyblock_jumper:stoneblock",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "skyblock_jumper:stoneblock_biome",
+      "lakes": false,
+      "features": true,
+      "layers": [
+        {
+          "block": "minecraft:stone",
+          "height": 319
+        }
+      ],
+      "structure_overrides": "skyblock_jumper:stoneblock"
+    }
+  }
+}
