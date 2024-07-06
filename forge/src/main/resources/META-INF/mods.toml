@@ -7,7 +7,7 @@ license = "Insert License Here"
 modId = "skyblock_jumper"
 version = "${version}"
 displayName = "Skyblock Jumper"
-authors = "Me!"
+authors = "Fej1Fun"
 description = '''
 This is an example description! Tell everyone what your mod is about!
 '''

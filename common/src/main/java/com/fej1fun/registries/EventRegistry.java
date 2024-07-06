@@ -29,10 +29,10 @@ public class EventRegistry {
 
     private static void generateStructure(ServerLevel serverLevel, ResourceKey<Level> dimension, ResourceLocation structure) {
         if (serverLevel.dimension().equals(dimension)) {
-            StructureTemplate structureTemplateSky = serverLevel.getStructureManager().getOrCreate(structure);
-            Vec3i vec3i = structureTemplateSky.getSize();
+            StructureTemplate structureTemplate = serverLevel.getStructureManager().getOrCreate(structure);
+            Vec3i vec3i = structureTemplate.getSize();
             if (!serverLevel.structureManager().hasAnyStructureAt(new BlockPos(0,127,0))) {
-                structureTemplateSky.placeInWorld(serverLevel, new BlockPos(0,127,0),
+                structureTemplate.placeInWorld(serverLevel, new BlockPos(0,127,0),
                         new BlockPos(vec3i.getX(), vec3i.getY() + 127, vec3i.getZ()), new StructurePlaceSettings(), serverLevel.getRandom(), 2);
             }
         }
