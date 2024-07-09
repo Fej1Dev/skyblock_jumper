@@ -1,4 +1,4 @@
-{
+  {
   "required": true,
   "package": "com.fej1fun.mixin",
   "compatibilityLevel": "JAVA_17",

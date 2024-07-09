@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:the_nether",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "skyblock_jumper:lavablock_biome",
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        },
+        {
+          "block": "minecraft:netherrack",
+          "height": 31
+        },
+        {
+          "block": "minecraft:lava",
+          "height": 97
+        }
+      ],
+      "structure_overrides": "skyblock_jumper:lavablock"
+    }
+  }
+}
