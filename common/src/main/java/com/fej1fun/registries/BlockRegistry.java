@@ -13,5 +13,5 @@ import static com.fej1fun.SkyblockJumper.MOD_ID;
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(MOD_ID, Registries.BLOCK);
 
-    public static final DeferredSupplier<Block> WOOD_PORTAL_BLOCK = BLOCKS.register("wood_portal_block", () -> new NetherPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL)));
+    public static final DeferredSupplier<Block> CORUNDUM_ORE = BLOCKS.register("corundum_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
 }

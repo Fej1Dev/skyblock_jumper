@@ -13,7 +13,6 @@ public final class SkyblockJumper {
         // Write common init code here.
 
         EventRegistry.init();
-        //PortalRegistry.init();
 
         //Client
         ClientLifecycleEvent.CLIENT_SETUP.register(minecraft -> {

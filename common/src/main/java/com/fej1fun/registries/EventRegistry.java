@@ -2,7 +2,9 @@ package com.fej1fun.registries;
 
 import com.fej1fun.SkyblockJumper;
 import com.fej1fun.StateSaverAndLoader;
+import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
+import dev.architectury.registry.level.biome.BiomeModifications;
 import io.netty.buffer.Unpooled;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
@@ -11,8 +13,11 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
@@ -25,6 +30,8 @@ public class EventRegistry {
     public static final ResourceLocation WATERBLOCK = new ResourceLocation(SkyblockJumper.MOD_ID, "waterblock");
     public static final ResourceKey<Level> LAVABLOCK_DIM = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(SkyblockJumper.MOD_ID, "lavablock"));
     public static final ResourceLocation LAVABLOCK = new ResourceLocation(SkyblockJumper.MOD_ID, "lavablock");
+
+    public static final TagKey<Biome> STONEBLOCK_BIOME_TAG = TagKey.create(Registries.BIOME, new ResourceLocation(SkyblockJumper.MOD_ID, "stoneblock_tag"));
 
 
     public static void init() {
@@ -50,6 +57,17 @@ public class EventRegistry {
                 data.writeBoolean(serverState.GeneratedLavablock);
             }
             serverState.setDirty();
+        });
+
+        //Ore gen
+        LifecycleEvent.SETUP.register(() -> {
+            BiomeModifications.addProperties((ctx, mutable) -> {
+                if (ctx.hasTag(STONEBLOCK_BIOME_TAG) || true) {
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                            ResourceKey.create(Registries.PLACED_FEATURE,
+                                    new ResourceLocation(SkyblockJumper.MOD_ID, "conrundum_ore")));
+                }
+            });
         });
 
     }
