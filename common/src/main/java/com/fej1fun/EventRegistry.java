@@ -1,7 +1,5 @@
-package com.fej1fun.registries;
+package com.fej1fun;
 
-import com.fej1fun.SkyblockJumper;
-import com.fej1fun.StateSaverAndLoader;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
 import dev.architectury.registry.level.biome.BiomeModifications;
@@ -57,17 +55,6 @@ public class EventRegistry {
                 data.writeBoolean(serverState.GeneratedLavablock);
             }
             serverState.setDirty();
-        });
-
-        //Ore gen
-        LifecycleEvent.SETUP.register(() -> {
-            BiomeModifications.addProperties((ctx, mutable) -> {
-                if (ctx.hasTag(STONEBLOCK_BIOME_TAG) || true) {
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
-                            ResourceKey.create(Registries.PLACED_FEATURE,
-                                    new ResourceLocation(SkyblockJumper.MOD_ID, "conrundum_ore")));
-                }
-            });
         });
 
     }

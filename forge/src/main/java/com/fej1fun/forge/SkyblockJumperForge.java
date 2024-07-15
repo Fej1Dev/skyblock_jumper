@@ -1,6 +1,6 @@
 package com.fej1fun.forge;
 
-import com.fej1fun.registries.EventRegistry;
+import com.fej1fun.EventRegistry;
 import dev.architectury.platform.forge.EventBuses;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.resources.ResourceLocation;

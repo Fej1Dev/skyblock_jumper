@@ -12,7 +12,7 @@
           "height": 319
         }
       ],
-      "structure_overrides": "skyblock_jumper:stoneblock"
+      "structure_overrides": ["skyblock_jumper:stoneblock"]
     }
   }
 }

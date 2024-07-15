@@ -70,5 +70,5 @@
   },
   "spawn_costs": {},
   "carvers": {},
-  "features": []
+  "features": ["skyblock_jumper:corundum_ore"]
 }

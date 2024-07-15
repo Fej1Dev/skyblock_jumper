@@ -1,16 +1,19 @@
 package com.fej1fun;
 
-import com.fej1fun.registries.EventRegistry;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
+import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.DeferredSupplier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,13 +33,21 @@ public final class SkyblockJumper {
     public static void init() {
         // Write common init code here.
 
-        EventRegistry.init();
         BLOCKS.register();
         ITEMS.register();
+        EventRegistry.init();
 
-        //Client
-        ClientLifecycleEvent.CLIENT_SETUP.register(minecraft -> {
+        //ore gen
+        BiomeModifications.addProperties((ctx, mutable) -> {
+            if (ctx.hasTag(EventRegistry.STONEBLOCK_BIOME_TAG)) {
+                mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                        ResourceKey.create(Registries.PLACED_FEATURE,
+                                new ResourceLocation(SkyblockJumper.MOD_ID, "corundum_ore")));
+            }
         });
+
+//        ClientLifecycleEvent.CLIENT_SETUP.register(minecraft -> {
+//        });
 
         LOG.info("finished loading");
     }

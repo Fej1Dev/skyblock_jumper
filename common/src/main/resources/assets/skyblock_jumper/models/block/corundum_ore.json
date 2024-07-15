@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "skyblock_jumper:block/conrundrum_ore"
+    "all": "skyblock_jumper:block/corundum_ore"
   }
 }

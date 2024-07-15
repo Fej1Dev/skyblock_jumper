@@ -1,6 +1,6 @@
 package com.fej1fun.fabric;
 
-import com.fej1fun.registries.EventRegistry;
+import com.fej1fun.EventRegistry;
 import net.fabricmc.api.ModInitializer;
 import com.fej1fun.SkyblockJumper;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;

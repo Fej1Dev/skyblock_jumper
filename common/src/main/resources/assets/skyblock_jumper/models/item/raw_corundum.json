@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "skyblock_jumper:item/raw_conrundrum"
+    "layer0": "skyblock_jumper:item/raw_corundum"
   }
 }
