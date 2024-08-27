@@ -33,3 +33,10 @@ mandatory = true
 versionRange = "[9.2.14,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.skyblock_jumper]]
+modId = "cpapireforged"
+mandatory = true
+versionRange = "[1.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
