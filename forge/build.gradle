@@ -42,7 +42,7 @@ dependencies {
 
     //Portal api
     modImplementation "net.kyrptonaught.customportalapi:customportalapi-reforged:1.0.2"
-    include "net.kyrptonaught.customportalapi:customportalapi-reforged:1.0.2"
+    //include "net.kyrptonaught.customportalapi:customportalapi-reforged:1.0.2"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
