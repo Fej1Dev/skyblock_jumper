@@ -8,3 +8,4 @@
 /.idea/
 /fabric/run/
 /forge/run/
+*/.gradle/
